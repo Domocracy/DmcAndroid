@@ -1,0 +1,54 @@
+{
+	"hubId" : "dmcKike",
+	"name": "dmcKike",
+	"ip": "10.200.12.63",
+	"lastRoom":"room002",
+	"devices": [
+		{
+			"type":"HueLight",
+			"id": 42,
+			"name": "light",
+			"hub": "dmcKike"
+		},
+		{
+			"type":"Kodi",
+			"id": 74,
+			"name": "Media",
+			"hub": "dmcKike",
+			"media": {
+				"tvshows": [
+					{
+						"label":"Dead Set",
+						"tvshowid":"1"
+					},
+					{
+						"label":"New Girl",
+						"tvshowid":"2"
+					}
+				],
+				"movies":[
+					{
+						"label":"Matrix",
+						"movieid":"1"
+					}
+				]
+			}
+		}
+	],
+	"rooms":[
+		{
+			"roomId" : "room002",
+			"name": "Timmy's room",
+			"panels": [
+				{
+					"type": "HueLight",
+					"devId":42
+				},
+				{
+					"type": "LastShow",
+					"devId":74
+				}
+			]
+		}
+	]
+}

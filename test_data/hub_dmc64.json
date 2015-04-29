@@ -1,0 +1,18 @@
+{
+    "hubId": "dmc64",
+    "devices": [
+        
+    ],
+    "ip": "10.100.8.93",
+	"lastRoom" : "room001",
+    "rooms": [
+        {
+            "panels": [
+
+            ],
+            "roomId" : "room001",
+            "name": "Cuarto"
+        }
+    ],
+    "name": "dmc64"
+}
