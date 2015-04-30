@@ -27,9 +27,20 @@ import app.dmc.user_interface.NewDevicePanelMenu;
 import app.dmc.user_interface.PanelList;
 import app.dmc.user_interface.RoomHeader;
 
+/** Rooms are collections of device panels. This class is responsible of decoding and storing room's related
+ *  information. It's also responsible of managing it's interaction with the user (Modifications, etc...)
+ *
+ */
+
 public class Room {
     //-----------------------------------------------------------------------------------------------------------------
     // Public Interface
+    /** \brief Room constructor. From given data (Coded in a Json), create a room entity attached to the given hub.
+     *
+     * @param _data
+     * @param _hub
+     * @param _context
+     */
     public Room(JSONObject _data, Hub _hub, Context _context){
         mLayout = new ScrollView(_context);
 
@@ -46,11 +57,21 @@ public class Room {
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Get room's view.
+     *
+     * @return
+     */
+
     public View view(){
         return mLayout;
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Add given device panel to current room
+     *
+     * @param _panel
+     */
+
     public void addPanel(DevicePanel _panel){
         mPanelList.addPanel(_panel);
     }
