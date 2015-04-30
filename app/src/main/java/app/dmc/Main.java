@@ -10,6 +10,10 @@ import app.dmc.core.Persistence;
 import app.dmc.user_interface.TopBar;
 import app.dmc.user_interface.UserInterface;
 
+
+/** Main activity class. This Activity holds all application life cycle.
+ *
+ */
 public class Main extends ActionBarActivity {
 	//-----------------------------------------------------------------------------------------------------------------
     @Override
