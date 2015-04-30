@@ -1,3 +1,12 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      Domocracy Android App
+//          Author: Joscormir
+//         Date:    2015-MAR-02
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+
 package app.dmc;
 
 import android.content.Context;
@@ -14,48 +23,91 @@ import app.dmc.core.Persistence;
 import app.dmc.devices.Device;
 import app.dmc.user_interface.UserInterface;
 
-/**
- * Created by Joscormir on 02/03/2015.
+/** User singleton class. This class is responsible of loading and saving all data related to user and user's devices and rooms.
+ *
  */
-
 public class User {
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Static initialization of class
+     *
+     *  Instance User from giving user Id and with the main activity.
+     *
+     * @param _userID
+     * @param _activity
+     */
     public static void init(String _userID, ActionBarActivity _activity){
         assert sInstance == null;
         sInstance = new User(_userID, _activity);
     }
 
+
 	//-----------------------------------------------------------------------------------------------------------------
+    /** \brief finish current instance of user.
+     *
+     */
 	public static void end() {
 		sInstance.onEnd();
 		sInstance = null;
 	}
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Get current user instance
+     *
+     * @return
+     */
     public static User get(){
         return sInstance;
     }
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Get id of current user
+     *
+     * @return
+     */
     public String id(){ return mId; }
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Get the list of hubs id that the current user has.
+     *
+     * @return
+     */
     public List<String> getHubIDList(){
         return mHubIds;
     }
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Get the hub that is currently been used by the user.
+     *
+     * @return
+     */
     public Hub getCurrentHub(){
         return mLastHub;
     }
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Change current hub to the requested one given by Hub Id.
+     *
+     * @param _hubId
+     */
     public void setHub(String _hubId){
        mLastHub = HubManager.get().hub(_hubId);
        UserInterface.get().onSetHub(mLastHub);
     }
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief  Add a new room to the current hub.
+     *
+     * @param _roomInfo
+     * @param _context
+     */
+
     public void addRoom(JSONObject _roomInfo, Context _context){
         Room room = new Room(_roomInfo, getCurrentHub(), _context);
         getCurrentHub().addRoom(room);
     }
+
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Add a new device to the current hub and the current room.
+     *
+     * @param _deviceInfo
+     * @return
+     */
+
     public Device addNewDevice(JSONObject _deviceInfo){
         // Register new device on DevMgr
         return getCurrentHub().registerDevice(_deviceInfo);
