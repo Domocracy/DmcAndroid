@@ -23,8 +23,15 @@ import java.util.Set;
 import app.dmc.Hub;
 import app.dmc.HubManager;
 
+/** Base class with common members and methods related to devices.
+ *
+ */
 public abstract class Device {
     //-----------------------------------------------------------------------------------------------------------------
+	/** \brief Construct device with data from JSON.
+	 *
+	 * @param _devData
+	 */
     public Device(JSONObject _devData){
         mRegisteredPanels = new HashSet<>();
 
@@ -37,12 +44,32 @@ public abstract class Device {
             _exception.printStackTrace();
         }
     }
-
+	//-----------------------------------------------------------------------------------------------------------------
+	/**	\brief Get device name.
+	 *
+	 * @return
+	 */
     public String name(){ return mName; };
+
+	//-----------------------------------------------------------------------------------------------------------------
+	/**	\brief Get device id.
+	 *
+	 * @return
+	 */
     public int id()     { return mId; };
+
+	//-----------------------------------------------------------------------------------------------------------------
+	/** \brief Get hub id.
+	 *
+	 * @return
+	 */
     public String hub() {return mHubId;};
 
 	//-----------------------------------------------------------------------------------------------------------------
+	/**	\brief This method generate an http request object from a json o and send to hub.
+	 *
+	 * @param _request
+	 */
 	final public void runCommand(final JSONObject _request) {
 		if(_request == null)
 			return;
