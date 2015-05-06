@@ -1,3 +1,12 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      Domocracy Android App
+//          Author: Jose Enrique Corchado Miralles
+//         Date:    2015-FEB-16
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+
 package app.dmc.core;
 
 import android.content.Context;
@@ -17,29 +26,44 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by Joscormir on 16/02/2015.
+/** Pesistence layer manager.
+ *
  */
-
 public class Persistence {
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Initialize persistence layer instance
+     *
+     * @param _context
+     */
     public static void init(Context _context){
         assert sInstance == null;
         sInstance = new Persistence(_context);
     }
 
 	//-----------------------------------------------------------------------------------------------------------------
+    /** \brief End persistence instance
+     *
+     */
 	public static void end() {
 		sInstance.onEnd();
 		sInstance = null;
 	}
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** Get reference to persistence instance
+     *
+     * @return
+     */
     public static Persistence get(){
         return sInstance;
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** Get filename from persistence as JSON
+     *
+     * @param _fileName
+     * @return
+     */
     public JSONObject getJSON(String _fileName){
         if (mFiles.containsKey(_fileName)){
             return mFiles.get(_fileName);
@@ -53,12 +77,24 @@ public class Persistence {
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** Save Json in persistence layer
+     *
+     * @param _fileName
+     * @param _jsonToInsert
+     * @return
+     */
+
     public boolean putJSON(String _fileName, JSONObject _jsonToInsert){
         mFiles.put(_fileName,_jsonToInsert);
         return true;
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** Remove Json file.
+     *
+     * @param _fileName
+     * @return
+     */
     public boolean removeJSON(String _fileName){
         mFiles.remove(_fileName);
         mFilesToDelete.add(_fileName);
@@ -66,6 +102,7 @@ public class Persistence {
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    // Private interface
     private JSONObject loadJSONFile(String _fileName) {
         JSONObject json = null;
         File file = new File(mContext.getExternalFilesDir(null), _fileName + ".json");
