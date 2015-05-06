@@ -18,9 +18,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *
+ */
 public class DeviceManager {
     //-----------------------------------------------------------------------------------------------------------------
     //  Public Interface
+    /** \brief Get device from id.
+     *
+     * @param _id
+     * @return
+     */
     public Device device(int _id) {
         //  Check if device exist.
         if (mRegisteredDevices.containsKey(_id)) {
@@ -32,6 +40,10 @@ public class DeviceManager {
     }
 
 	//-----------------------------------------------------------------------------------------------------------------
+    /** Save devices on persistence layer.
+     *
+     * @return
+     */
 	public JSONArray serializeDevices() {
 		JSONArray deviceList = new JSONArray();
 		try {
@@ -45,11 +57,21 @@ public class DeviceManager {
 		return deviceList;
 	}
 
+    //-----------------------------------------------------------------------------------------------------------------
+    /** Constructor from data.
+     *
+     * @param _devData
+     */
     public DeviceManager(JSONArray _devData) {
         createDevices(_devData);
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** Register new device
+     *
+     * @param _deviceInfo
+     * @return
+     */
     public Device register(JSONObject _deviceInfo){
         DeviceFactory factory = DeviceFactory.get();
         try {
@@ -65,6 +87,10 @@ public class DeviceManager {
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** Get list of devices id.
+     *
+     * @return
+     */
     public List<Integer> deviceIds(){
         List<Integer> ids = new ArrayList<>();
         for(Device dev: mRegisteredDevices.values()){
