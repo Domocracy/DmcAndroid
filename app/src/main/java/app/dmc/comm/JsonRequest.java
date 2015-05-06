@@ -27,6 +27,10 @@ import java.net.URL;
 public class JsonRequest {
     //-----------------------------------------------------------------------------------------------------------------
     // Public Interface
+    /** \brief Constructor. Create a JSON request with the given URL. This request hasn't got of Headers, Methods and body.
+     *
+     * @param _url
+     */
     public JsonRequest(String _url){
         try {
             // Create new URL. This class check if string is properly written, and can create a connection from it.
@@ -47,6 +51,10 @@ public class JsonRequest {
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Set the method to the request
+     *
+     * @param _method
+     */
     public void setMethod(String _method){
         try {
             mConnection.setRequestMethod(_method);
@@ -56,11 +64,20 @@ public class JsonRequest {
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Add the given header to the request
+     *
+     * @param _key
+     * @param _value
+     */
     public void setHeader(String _key, String _value){
         mConnection.setRequestProperty(_key, _value);
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Set the given string as request's body
+     *
+     * @param _body
+     */
     public void setBody(String _body){
         mConnection.setDoOutput(true);
         mConnection.setRequestProperty("Content-Length", Integer.toString(_body.length()));
@@ -75,6 +92,10 @@ public class JsonRequest {
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Send request.
+     *
+     * @return
+     */
     public JSONObject sendRequest(){
         JSONObject response = null;
         try {
