@@ -17,11 +17,18 @@ import android.util.Pair;
 
 import java.net.InetAddress;
 
+/** This class look for DMC's hub in the local network. Possible deprecated due to gateway IP.
+ *  WARNING: need API level 16 min
+ */
 public class HubFinder {
     final public static String DOMOCRACY_HUB_SERVICE = "domocracy";
     final public static String DOMOCRACY_HUB_SERVICE_TYPE = "_dmc._tcp";
     // ----------------------------------------------------------------------------------------------------------------
     // Public Interface
+    /** Contructor.
+     *
+     * @param _context
+     */
     public HubFinder(Context _context) {
         mDiscoveryListener = new NSDdiscovery();
         mResolveListener = new NSDresolver();
@@ -30,6 +37,10 @@ public class HubFinder {
     }
 
     // ----------------------------------------------------------------------------------------------------------------
+    /** Retreive information to connect to hub.
+     *
+     * @return pair
+     */
     public Pair<InetAddress, Integer> hubConnectionInfo(){
         return new Pair<InetAddress, Integer>(mHost, mPort);
     }
@@ -37,11 +48,17 @@ public class HubFinder {
 
     // ----------------------------------------------------------------------------------------------------------------
     // Private Interface
+    /** Start hub discovering
+     *
+     */
     public void lookForHub() {
         mNsdManager.discoverServices(DOMOCRACY_HUB_SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, mDiscoveryListener);
     }
 
     // ----------------------------------------------------------------------------------------------------------------
+    /** Stop hub discovering
+     *
+     */
     public void stopLookingFor() {
         mNsdManager.stopServiceDiscovery(mDiscoveryListener);
     }
