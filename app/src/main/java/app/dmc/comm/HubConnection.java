@@ -11,6 +11,10 @@ package app.dmc.comm;
 
 import org.json.JSONObject;
 
+/** Hub inner class that deal with http connections
+ *  WARNING: Possible deprecated.
+ */
+
 public class HubConnection {
     //-----------------------------------------------------------------------------------------------------------------
     // Public Interface
