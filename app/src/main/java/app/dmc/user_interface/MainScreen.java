@@ -20,14 +20,25 @@ import app.dmc.Hub;
 import app.dmc.R;
 import app.dmc.Room;
 
+/** Main view where room views are placed
+*
+*
+*/
 public class MainScreen {
     //-----------------------------------------------------------------------------------------------------------------
     //  Public Interface
-
+    /** \brief Constructor, construct the main screen with the given hub.
+    *
+    *
+    */
     public MainScreen(ActionBarActivity _activity, Hub _currentHub) {
         setHub(_activity, _currentHub);
     }
+
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief re-build the view with the given hub.
+    *
+    */
     public void setHub(ActionBarActivity _activity, Hub _currentHub){
         mCurrentHub = _currentHub;
 		mActivity = _activity;
@@ -52,12 +63,16 @@ public class MainScreen {
             setRoomTitle();
     }
 
-	//-----------------------------------------------------------------------------------------------------------------
-	public void setRoom(String _roomId) {
-		mCurrentRoom = mCurrentHub.room(_roomId);
-		setRoomTitle();
-		/// 666 TODO: Tell room seletor to change the room.
-	}
+    //-----------------------------------------------------------------------------------------------------------------
+    /** \brief "666 UNCOMPLITED" Change the current room.
+    *
+    *
+    */    
+    public void setRoom(String _roomId) {
+	    mCurrentRoom = mCurrentHub.room(_roomId);
+	    setRoomTitle();
+	    /// 666 TODO: Tell room seletor to change the room.
+    }
 
     //-----------------------------------------------------------------------------------------------------------------
     private void setRoomTitle(){

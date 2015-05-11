@@ -22,7 +22,10 @@ import org.json.JSONObject;
 
 import app.dmc.User;
 
-
+/** Pop-up menu that allows user to add new rooms
+*
+*
+*/
 public class NewRoomMenu {
     public NewRoomMenu(Activity _activity){
         mMenuBuilder = new AlertDialog.Builder(_activity);

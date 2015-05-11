@@ -33,6 +33,10 @@ import app.dmc.User;
 import app.dmc.devices.Device;
 import app.dmc.devices.DevicePanel;
 
+/** Pop-up menu that allows user to add new scenes.
+*
+*
+*/
 public class NewSceneMenu{
     public NewSceneMenu(Activity _activity){
         mMenuBuilder = new AlertDialog.Builder(_activity);

@@ -15,30 +15,50 @@ import app.dmc.Hub;
 import app.dmc.R;
 import app.dmc.User;
 
+/** Singleton that manage user interface.
+*
+*
+*/
 public class UserInterface {
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Init instance
+    *
+    *
+    */
     public static void init(ActionBarActivity _activity, User _user){
         assert sInstance == null;
         sInstance = new UserInterface(_activity, _user);
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Get instance
+    *
+    *
+    */
     public static UserInterface get(){
         return sInstance;
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Set given hub as current hub.
+    *
+    *
+    */
     public void onSetHub(Hub _hub){
         mMainScreen.setHub(mActivity, _hub);
     }
 
     //-----------------------------------------------------------------------------------------------------------------
-	public void setRoom(String _roomId) {
-		mMainScreen.setRoom(_roomId);
-	}
+    /** \brief Set given room as room in room selector.
+    *
+    *
+    */
+    public void setRoom(String _roomId) {
+	mMainScreen.setRoom(_roomId);
+    }
 
 
-	//-----------------------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------
     //  Private Interface
     private UserInterface(ActionBarActivity _activity, User _user){
         _activity.setContentView(R.layout.activity_main);

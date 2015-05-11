@@ -15,8 +15,16 @@ import android.widget.LinearLayout;
 
 import app.dmc.R;
 
+/** View of Room's header.
+*
+*
+*/
 public class RoomHeader extends LinearLayout{
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Contructor. 666 TODO.
+    *
+    *
+    */
     public RoomHeader(Context _context){
         super(_context);
 

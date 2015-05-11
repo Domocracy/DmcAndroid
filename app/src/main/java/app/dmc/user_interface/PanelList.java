@@ -24,8 +24,15 @@ import java.util.ArrayList;
 import app.dmc.Hub;
 import app.dmc.devices.DevicePanel;
 
+/** View that holds a list of device panels.
+*
+*/
 public class PanelList extends LinearLayout {
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Construct list of device panels from JSON array.
+    *
+    *
+    */
     public PanelList(JSONArray _panelsData, Hub _defaultHub, Context _context){
         super(_context);
         mPanels =  new ArrayList<>();
@@ -52,6 +59,10 @@ public class PanelList extends LinearLayout {
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Add new device panel to list.
+    *
+    *
+    */
     public void addPanel(DevicePanel _panel){
         mPanels.add(_panel);
         addView(_panel);
@@ -59,6 +70,10 @@ public class PanelList extends LinearLayout {
 
     //-----------------------------------------------------------------------------------------------------------------
     // Getters
+    /** \brief Get list of device panels.
+    *
+    *
+    */
     public ArrayList<DevicePanel> panels(){ return mPanels; }
 
     //-----------------------------------------------------------------------------------------------------------------

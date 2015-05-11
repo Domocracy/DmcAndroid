@@ -1,3 +1,12 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      Domocracy Android App
+//          Author:  Joscormir
+//         Date:    2015-FEB-19
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+
 package app.dmc.user_interface;
 
 import android.app.AlertDialog;
@@ -10,12 +19,17 @@ import android.widget.EditText;
 import app.dmc.R;
 import app.dmc.User;
 
-/**
- * Created by Joscormir on 19/02/2015.
- */
+    /** Class that manage the Top bar (ActionBar)
+    *
+    *
+    */
 public class TopBar {
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Add to the top bar menu a butto to change the current hub's IP.
+    *
+    *
+    */
     public boolean setIpButton(Context _context){
 
             AlertDialog.Builder builderDialogSetIp = new AlertDialog.Builder(_context);
