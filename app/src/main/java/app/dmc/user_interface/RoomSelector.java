@@ -25,9 +25,17 @@ import app.dmc.R;
 import app.dmc.Room;
 import app.dmc.User;
 
+/**
+*
+*
+*/
 public class RoomSelector {
     //-----------------------------------------------------------------------------------------------------------------
     // Public interface
+    /** \brief Build the view with the given list of rooms.
+    *
+    *
+    */
     public RoomSelector(ActionBarActivity _activity, final List<Room>_rooms){
         mRooms = _rooms;
         mSelector = new CustomViewFlipper(_activity);
@@ -43,6 +51,10 @@ public class RoomSelector {
     }
 
     //-----------------------------------------------------------------------------------------------------------------
+    /** \brief Get selector view.
+    *
+    *
+    */
     public View view(){
         return mSelector;
     }

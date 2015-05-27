@@ -19,10 +19,19 @@ import java.util.List;
 
 import app.dmc.R;
 import app.dmc.User;
+/** Expandable list that allows user to change current hub.
+*
+*
+*/
 
 public class HubSelector implements AdapterView.OnItemSelectedListener {
     //-----------------------------------------------------------------------------------------------------------------
     //  Public Interface
+
+    /** \brief Constructor. Build class with the given list of hub ids
+    *
+    *
+    */
     HubSelector(Context _context, List<String> _hubIdList){
         mHubList = _hubIdList;
 

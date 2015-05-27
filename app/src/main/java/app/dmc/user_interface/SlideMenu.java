@@ -18,10 +18,17 @@ import java.util.List;
 
 import app.dmc.R;
 
+/** Clas that manage the navigation drawer (Or left slide menu)
+*
+*
+*/
 public class SlideMenu {
     //-----------------------------------------------------------------------------------------------------------------
     //  Public Interface
-
+    /** \brief Contructor. Build the view and set it.
+    *
+    *
+    */
     public SlideMenu(final Activity _activity, List<String> _hubIdList) {
         // Get Base Layout
         mLayout = (LinearLayout) _activity.findViewById(R.id.left_menu);

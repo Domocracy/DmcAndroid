@@ -29,6 +29,11 @@ import app.dmc.User;
 import app.dmc.devices.Device;
 import app.dmc.devices.DevicePanel;
 
+
+/** Popup menu that allows user to add new device panels.
+*
+*
+*/
 public class NewDevicePanelMenu {
     public NewDevicePanelMenu(Context _context, Room _room){
         mDevListLayout  = new LinearLayout(_context);
